@@ -47,11 +47,10 @@ porto-clone/index.html
 https://dev66-66.github.io/todo-app-practice/porto-clone/
 
 Задачи по JavaScript
-Ссылки на каждую задачу:
-1.http://localhost:63342/todo-app/js-tasks/task-1.html?_ijt=ufon6mvjpkl0mso36ki2a878il&_ij_reload=RELOAD_ON_SAVE
-2.http://localhost:63342/todo-app/js-tasks/task-2.html?_ijt=ufon6mvjpkl0mso36ki2a878il&_ij_reload=RELOAD_ON_SAVE
-3.http://localhost:63342/todo-app/js-tasks/task-3.html?_ijt=ufon6mvjpkl0mso36ki2a878il&_ij_reload=RELOAD_ON_SAVE
-4.http://localhost:63342/todo-app/js-tasks/task-4.html?_ijt=ufon6mvjpkl0mso36ki2a878il&_ij_reload=RELOAD_ON_SAVE
-5.http://localhost:63342/todo-app/js-tasks/task-5.html?_ijt=ufon6mvjpkl0mso36ki2a878il&_ij_reload=RELOAD_ON_SAVE
+Для запуска каждой задачи требуется:
+1. Скачать файл формата .html, соответсвующий задаче.
+2. При наличии скачать файл формата .js, ссоответсвующий задаче.
+3. Создать проект в PhpStorm и добавить эти файлы.
+4. Запустить файл формата html через браузер.
 К сожалению не удалось использовать данные из http://exercise.develop.maximaster.ru/service/cpu/.
 
