@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Загрузка процессора</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    canvas {
+      max-width: 700px;
+      margin-top: 30px;
+    }
+    .stats {
+      margin-top: 20px;
+      font-family: sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+<h2>График загрузки процессора</h2>
+<canvas id="cpuChart"></canvas>
+
+<div class="stats">
+  <p>Всего запросов: <span id="total">0</span></p>
+  <p>Ошибок: <span id="errors">0</span> (<span id="errorPercent">0</span>%)</p>
+</div>
+
+<script src="js/task-4.js"></script>
+</body>
+</html>
