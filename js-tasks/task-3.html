@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Товары из сервиса</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #aaa;
+      padding: 8px;
+      text-align: center;
+    }
+    input {
+      margin: 5px;
+      padding: 5px;
+      width: 100px;
+    }
+    .error {
+      color: red;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Фильтр по цене</h2>
+<label>Цена от:
+  <input type="number" id="minPrice" value="0">
+</label>
+<label>до:
+  <input type="number" id="maxPrice" value="100000">
+</label>
+<button onclick="fetchAndRender()">Обновить</button>
+
+<div id="errorMessage" class="error"></div>
+<div id="tableContainer"></div>
+
+<script>
+  let products = [];
+
+  async function fetchProducts() {
+    try {
+      const response = await fetch("products.json");
+      if (!response.ok) throw new Error("Ошибка загрузки данных");
+      products = await response.json();
+    } catch (err) {
+      document.getElementById("errorMessage").textContent = "Не удалось загрузить данные с локального файла.";
+      return [];
+    }
+    return products;
+  }
+
+
+  function renderTable(data) {
+    const container = document.getElementById("tableContainer");
+    container.innerHTML = "";
+
+    if (data.length === 0) {
+      container.innerHTML = "<p>Нет данных, попадающих под условие фильтра</p>";
+      return;
+    }
+
+    let table = `
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Название</th>
+              <th>Количество</th>
+              <th>Цена за единицу</th>
+              <th>Сумма</th>
+            </tr>
+          </thead>
+          <tbody>
+      `;
+
+    data.forEach((item, index) => {
+      const sum = item.quantity * item.price;
+      table += `
+          <tr>
+            <td>${index + 1}</td>
+            <td>${item.name}</td>
+            <td>${item.quantity}</td>
+            <td>${item.price}</td>
+            <td>${sum}</td>
+          </tr>
+        `;
+    });
+
+    table += "</tbody></table>";
+    container.innerHTML = table;
+  }
+
+  async function fetchAndRender() {
+    const min = parseInt(document.getElementById("minPrice").value, 10);
+    const max = parseInt(document.getElementById("maxPrice").value, 10);
+    const errorMessage = document.getElementById("errorMessage");
+    errorMessage.textContent = "";
+
+    if (isNaN(min) || isNaN(max) || min < 0 || max < 0 || min > max) {
+      errorMessage.textContent = "Ошибка ввода: убедитесь, что цены — неотрицательные числа и 'от' не больше 'до'.";
+      document.getElementById("tableContainer").innerHTML = "";
+      return;
+    }
+
+    if (products.length === 0) {
+      await fetchProducts();
+    }
+
+    const filtered = products.filter(p => p.price >= min && p.price <= max);
+    renderTable(filtered);
+  }
+
+  // Автозагрузка при старте
+  window.onload = async () => {
+    await fetchProducts();
+    renderTable(products);
+  };
+</script>
+
+</body>
+</html>
