@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Оформление заказа</title>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            box-sizing: border-box;
+        }
+        #map {
+            width: 100%;
+            height: 200px;
+            margin-top: 10px;
+        }
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+        .success {
+            color: green;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<h1>Оформление заказа</h1>
+
+<form id="orderForm">
+    <input type="text" id="name" placeholder="ФИО" required />
+    <input type="text" id="phone" placeholder="Телефон" required />
+    <input type="email" id="email" placeholder="Email" required />
+    <div id="map"></div>
+    <textarea id="comment" maxlength="500" placeholder="Комментарий к заказу (макс. 500 символов)"></textarea>
+    <button type="submit">Отправить</button>
+</form>
+
+<div id="message"></div>
+
+<script>
+    let selectedCoords = null;
+
+    ymaps.ready(function () {
+        const map = new ymaps.Map("map", {
+            center: [55.76, 37.64],
+            zoom: 10
+        });
+
+        map.events.add('click', function (e) {
+            const coords = e.get('coords');
+            selectedCoords = coords;
+
+            map.geoObjects.removeAll();
+
+            const placemark = new ymaps.Placemark(coords, {
+                balloonContent: `Координаты: ${coords[0].toFixed(4)}, ${coords[1].toFixed(4)}`
+            }, {
+                preset: 'islands#icon',
+                iconColor: '#0095b6'
+            });
+
+            map.geoObjects.add(placemark);
+            placemark.balloon.open();
+        });
+    });
+
+    document.getElementById("orderForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const name = document.getElementById("name").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const comment = document.getElementById("comment").value.trim();
+        const messageDiv = document.getElementById("message");
+
+        let errors = [];
+
+        if (!name) errors.push("Не заполнено поле ФИО");
+        if (!phone || !/^\d+$/.test(phone)) errors.push("Поле Телефон должно содержать только цифры");
+        if (!email || !email.includes("@")) errors.push("Email должен содержать символ '@'");
+        if (!selectedCoords) errors.push("Не отмечен адрес доставки");
+
+        messageDiv.innerHTML = "";
+
+        if (errors.length > 0) {
+            messageDiv.className = "error";
+            messageDiv.innerHTML = errors.join("<br>");
+        } else {
+            messageDiv.className = "success";
+            messageDiv.textContent = "Заказ оформлен!";
+        }
+    });
+</script>
+</body>
+</html>
