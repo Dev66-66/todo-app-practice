@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Porto Clone</title>
+
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js" crossorigin="anonymous"></script>
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Локальные стили -->
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<header class="bg-white shadow">
+    <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+        <!-- Logo -->
+        <a href="#">
+            <img src="img/navbar-logo.png" alt="Logo" class="h-8">
+        </a>
+
+        <!-- Navigation -->
+        <nav class="space-x-6 hidden md:flex">
+            <a href="#" class="text-gray-700 hover:text-blue-600 font-medium">Home</a>
+            <a href="#" class="text-gray-700 hover:text-blue-600 font-medium">Services</a>
+            <a href="#" class="text-gray-700 hover:text-blue-600 font-medium">Portfolio</a>
+            <a href="#" class="text-gray-700 hover:text-blue-600 font-medium">Contact</a>
+        </nav>
+
+        <!-- Mobile menu icon -->
+        <div class="md:hidden">
+            <button>
+                <i data-feather="menu" class="w-6 h-6 text-gray-700"></i>
+            </button>
+        </div>
+    </div>
+</header>
+
+
+<main>
+    <!-- Hero section -->
+    <section class="bg-gray-50 py-16">
+        <div class="container mx-auto px-4 flex flex-col-reverse lg:flex-row items-center">
+
+            <!-- Текстовая часть -->
+            <div class="w-full lg:w-1/2 mt-10 lg:mt-0">
+                <h1 class="text-4xl md:text-5xl font-bold leading-tight text-gray-800 mb-6">
+                    Build stunning websites in minutes
+                </h1>
+                <p class="text-lg text-gray-600 mb-6">
+                    Porto is the ultimate web design starter kit that helps you create modern and clean UI fast.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">
+                        Get Started
+                    </a>
+                    <a href="#" class="bg-gray-200 text-gray-800 px-6 py-3 rounded-lg hover:bg-gray-300 transition">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+
+            <!-- Картинка -->
+            <div class="w-full lg:w-1/2">
+                <img src="img/home-img.png" alt="Hero Image" class="w-full max-w-md mx-auto">
+            </div>
+
+        </div>
+    </section>
+    </section>
+
+    <section class="py-10 md:py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- Карточка 1 -->
+                <div class="bg-gray-50 px-8 py-10 rounded-md text-center">
+                    <div class="w-20 mx-auto py-6 flex justify-center bg-gray-100 rounded-md mb-4">
+                        <i data-feather="activity"></i>
+                    </div>
+                    <h4 class="font-medium text-gray-700 text-lg mb-4">High experience</h4>
+                    <p class="text-gray-500 text-md">Lorem ipsum dolor sit amet, consectetur<br>adipiscing elit, sed do eiusmod tempor.</p>
+                </div>
+
+                <!-- Карточка 2 -->
+                <div class="bg-gray-50 px-8 py-10 rounded-md text-center">
+                    <div class="w-20 mx-auto py-6 flex justify-center bg-gray-100 rounded-md mb-4">
+                        <i data-feather="codesandbox"></i>
+                    </div>
+                    <h4 class="font-medium text-gray-700 text-lg mb-4">Useful sandboxes</h4>
+                    <p class="text-gray-500 text-md">Lorem ipsum dolor sit amet, consectetur<br>adipiscing elit, sed do eiusmod tempor.</p>
+                </div>
+
+                <!-- Карточка 3 -->
+                <div class="bg-gray-50 px-8 py-10 rounded-md text-center">
+                    <div class="w-20 mx-auto py-6 flex justify-center bg-gray-100 rounded-md mb-4">
+                        <i data-feather="coffee"></i>
+                    </div>
+                    <h4 class="font-medium text-gray-700 text-lg mb-4">Success side projects</h4>
+                    <p class="text-gray-500 text-md">Lorem ipsum dolor sit amet, consectetur<br>adipiscing elit, sed do eiusmod tempor.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="py-10 md:py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+
+            <div class="flex flex-col lg:flex-row justify-between">
+
+                <!-- Левая часть -->
+                <div class="mb-10 lg:mb-0">
+                    <h1 class="text-3xl md:text-4xl font-semibold text-gray-800 mb-5">Portfolio</h1>
+                    <p class="text-gray-600 text-sm md:text-base">
+                        I have brought here my biggest and favorite works <br>
+                        as a professional.
+                    </p>
+                </div>
+
+                <!-- Правая часть -->
+                <div class="space-y-24">
+
+                    <!-- Проект 1 -->
+                    <div class="flex space-x-6">
+                        <h1 class="text-4xl font-light text-gray-700">01</h1>
+                        <span class="w-28 h-0.5 bg-gray-300 mt-5"></span>
+                        <div>
+                            <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 mb-3">Demo API Generator</h2>
+                            <p class="text-gray-600 text-sm md:text-base">
+                                A dummy data free and documented API generator to facilitate <br>
+                                the process of testing the front-end portion of projects.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Проект 2 -->
+                    <div class="flex space-x-6">
+                        <h1 class="text-4xl font-light text-gray-700">02</h1>
+                        <span class="w-28 h-0.5 bg-gray-300 mt-5"></span>
+                        <div>
+                            <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 mb-3">Dev Dashboard Kit</h2>
+                            <p class="text-gray-600 text-sm md:text-base">
+                                A beautiful dashboard UI Kit with reusable Tailwind components <br>
+                                and elegant layout templates.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-10 md:py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-center text-gray-700 text-xl font-semibold mb-12">Trusted by leading brands</h2>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 items-center justify-center">
+                <img src="img/brand-1.png" alt="Brand 1" class="mx-auto h-8 grayscale hover:grayscale-0 transition" />
+                <img src="img/brand-2.png" alt="Brand 2" class="mx-auto h-8 grayscale hover:grayscale-0 transition" />
+                <img src="img/brand-3.png" alt="Brand 3" class="mx-auto h-8 grayscale hover:grayscale-0 transition" />
+                <img src="img/brand-4.png" alt="Brand 4" class="mx-auto h-8 grayscale hover:grayscale-0 transition" />
+                <img src="img/brand-5.png" alt="Brand 5" class="mx-auto h-8 grayscale hover:grayscale-0 transition" />
+                <img src="img/brand-6.png" alt="Brand 6" class="mx-auto h-8 grayscale hover:grayscale-0 transition" />
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <p>© 2025 Porto</p>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/main.js"></script>
+
+<script>
+    feather.replace()
+</script>
+
+</body>
+</html>
+
+
